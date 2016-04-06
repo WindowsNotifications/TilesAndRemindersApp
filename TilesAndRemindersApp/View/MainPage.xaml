@@ -1,0 +1,98 @@
+﻿<local:MainPageBase
+    x:Name="ThisPage"
+    x:Class="TilesAndRemindersApp.View.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TilesAndRemindersApp.View"
+    xmlns:viewModel="using:TilesAndRemindersApp.ViewModel"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    NavigationCacheMode="Enabled"
+    xmlns:controls="using:TilesAndRemindersApp.Controls">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Margin="20,20,20,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="120"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBox
+                x:Name="TextBoxAddNew"
+                KeyUp="TextBoxAddNew_KeyUp"
+                Margin="0,0,10,0"
+                Header="New task (press Enter to save)"
+                PlaceholderText="task name"/>
+
+            <controls:TimeSpanPicker
+                x:Name="DueInTimeSpanPicker"
+                Grid.Column="1"
+                VerticalAlignment="Bottom"/>
+
+        </Grid>
+
+        <ListView
+            x:Name="ListViewSchedules"
+            Style="{StaticResource NoPaddingListViewStyle}"
+            ItemsSource="{Binding Path=ViewModel.Schedules, Mode=OneWay, ElementName=ThisPage}"
+            Grid.Row="1"
+            IsItemClickEnabled="True"
+            SelectionMode="None"
+            ItemClick="ListViewSchedules_ItemClick">
+
+            <ListView.Header>
+                <TextBlock
+                    Text="My Tasks"
+                    Style="{ThemeResource TitleTextBlockStyle}"
+                    Margin="20,20,20,0"/>
+            </ListView.Header>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="20,2,20,8">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <CheckBox
+                            IsChecked="{Binding IsComplete}"
+                            IsHitTestVisible="False"
+                            Margin="0,0,-80,0"/>
+
+                        <Grid Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock
+                                Text="{Binding Title}"
+                                Style="{ThemeResource SubtitleTextBlockStyle}"
+                                MaxLines="1"
+                                TextTrimming="CharacterEllipsis"/>
+
+                            <controls:RelativeTimeTextBlock
+                                Grid.Row="1"
+                                DateTime="{Binding StartTime}"/>
+                            <!--<TextBlock
+                                Grid.Row="1"
+                                Text="{Binding StartTime}"
+                                Style="{ThemeResource CaptionTextBlockStyle}"
+                                MaxLines="1"/>-->
+                        </Grid>
+
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            
+        </ListView>
+    </Grid>
+</local:MainPageBase>

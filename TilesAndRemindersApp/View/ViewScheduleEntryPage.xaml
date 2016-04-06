@@ -1,0 +1,27 @@
+﻿<local:ViewScheduleEntryPageBase
+    x:Class="TilesAndRemindersApp.View.ViewScheduleEntryPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TilesAndRemindersApp.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <TextBlock
+            Text="{x:Bind ViewModel.ScheduleEntry.Title}"
+            Margin="20"/>
+    </Grid>
+
+
+    <local:ViewScheduleEntryPageBase.BottomAppBar>
+        <CommandBar>
+            <AppBarButton
+                Icon="Delete"
+                Content="Remove"
+                Command="{x:Bind ViewModel.DeleteCommand}"/>
+        </CommandBar>
+    </local:ViewScheduleEntryPageBase.BottomAppBar>
+    
+    
+</local:ViewScheduleEntryPageBase>

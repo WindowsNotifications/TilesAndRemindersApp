@@ -1,0 +1,2 @@
+MainPackage=C:\Users\anbare\Source\Repos\QSC - Tiles and Reminders\TilesAndRemindersApp\bin\x64\Debug\TilesAndRemindersApp_1.0.2.0_x64_Debug.appx
+SymbolPackage=C:\Users\anbare\Source\Repos\QSC - Tiles and Reminders\TilesAndRemindersApp\AppPackages\TilesAndRemindersApp_1.0.2.0_Debug_Test\TilesAndRemindersApp_1.0.2.0_x64_Debug.appxsym

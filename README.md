@@ -3,4 +3,4 @@ A sample app that illustrates how to send toast reminders, interactive toasts, a
 
 
 ## Setup
-1. Make sure you've installed SQLite for Universal Windows Platform, version 3.11.1. To install this, open Visual Studio and from the top menu, select Tools -> Extensions and Updates, and search for "SQLite for Universal Windows Platform" in the Online section.
+1. Make sure you've installed SQLite for Universal Windows Platform, version 3.13.0. To install this, open Visual Studio and from the top menu, select Tools -> Extensions and Updates, and search for "SQLite for Universal Windows Platform" in the Online section.

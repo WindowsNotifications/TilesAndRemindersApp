@@ -154,11 +154,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <SDKReference Include="SQLite.UWP.2015, Version=3.11.0">
-      <Name>SQLite for Universal Windows Platform</Name>
-    </SDKReference>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\TilesAndRemindersBackgroundProject\TilesAndRemindersBackgroundProject.csproj">
       <Project>{8c6ed8a1-fda4-4a02-830e-b2cfc9cfb04b}</Project>
       <Name>TilesAndRemindersBackgroundProject</Name>
@@ -167,6 +162,11 @@
       <Project>{76e4e6ee-48ee-413b-98e9-ebafaafc9ee3}</Project>
       <Name>TilesAndRemindersLibrary</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="SQLite.UWP.2015, Version=3.13.0">
+      <Name>SQLite for Universal Windows Platform</Name>
+    </SDKReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

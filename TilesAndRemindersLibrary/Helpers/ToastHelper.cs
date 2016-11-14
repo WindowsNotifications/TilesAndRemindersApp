@@ -1,4 +1,4 @@
-﻿using NotificationsExtensions.Toasts;
+﻿using Microsoft.Toolkit.Uwp.Notifications;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -107,14 +107,20 @@ namespace TilesAndRemindersLibrary.Helpers
 
                 Visual = new ToastVisual()
                 {
-                    TitleText = new ToastText()
+                    BindingGeneric = new ToastBindingGeneric()
                     {
-                        Text = task.Title
-                    },
+                        Children =
+                        {
+                            new AdaptiveText()
+                            {
+                                Text = task.Title
+                            },
 
-                    BodyTextLine1 = new ToastText()
-                    {
-                        Text = "Due " + task.StartTime.LocalDateTime.ToString()
+                            new AdaptiveText()
+                            {
+                                Text = "Due " + task.StartTime.LocalDateTime.ToString()
+                            }
+                        }
                     }
                 },
 

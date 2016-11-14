@@ -1,4 +1,4 @@
-﻿using NotificationsExtensions.Tiles;
+﻿using Microsoft.Toolkit.Uwp.Notifications;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -179,32 +179,32 @@ namespace TilesAndRemindersLibrary.Workers
             {
                 Children =
                 {
-                    new TileGroup()
+                    new AdaptiveGroup()
                     {
                         Children =
                         {
-                            new TileSubgroup()
+                            new AdaptiveSubgroup()
                             {
-                                Weight = 22,
+                                HintWeight = 22,
                                 Children =
                                 {
-                                    new TileText()
+                                    new AdaptiveText()
                                     {
                                         Text = tasks.Length.ToString(),
-                                        Style = TileTextStyle.SubheaderNumeral
+                                        HintStyle = AdaptiveTextStyle.SubheaderNumeral
                                     }
                                 }
                             },
 
-                            new TileSubgroup()
+                            new AdaptiveSubgroup()
                             {
-                                Weight = 78,
+                                HintWeight = 78,
                                 Children =
                                 {
-                                    new TileText()
+                                    new AdaptiveText()
                                     {
                                         Text = RelativeTimeFromNow(tasks[0].StartTime, now),
-                                        Wrap = true
+                                        HintWrap = true
                                     }
                                 }
                             }
@@ -215,10 +215,10 @@ namespace TilesAndRemindersLibrary.Workers
 
             foreach (var t in tasks)
             {
-                content.Children.Add(new TileText()
+                content.Children.Add(new AdaptiveText()
                 {
                     Text = t.Title,
-                    Style = TileTextStyle.CaptionSubtle
+                    HintStyle = AdaptiveTextStyle.CaptionSubtle
                 });
             }
 
